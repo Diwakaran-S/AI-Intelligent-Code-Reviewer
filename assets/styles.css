@@ -1,0 +1,506 @@
+/* ================================================================
+   Intelligent Code Reviewer & Explainer — Premium Dark Theme CSS
+   Inspired by: Linear, Vercel, GitHub, Stripe Dashboard
+   ================================================================ */
+
+/* ── Google Fonts ──────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* ── CSS Custom Properties ────────────────────────────────────── */
+:root {
+    --bg-primary:     #0a0f1e;
+    --bg-secondary:   #111827;
+    --bg-card:        rgba(17, 24, 39, 0.7);
+    --bg-glass:       rgba(17, 24, 39, 0.45);
+    --border-subtle:  rgba(255, 255, 255, 0.06);
+    --border-glass:   rgba(255, 255, 255, 0.1);
+    --text-primary:   #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-muted:     #64748b;
+    --accent-violet:  #7c3aed;
+    --accent-indigo:  #6366f1;
+    --accent-blue:    #3b82f6;
+    --color-success:  #22c55e;
+    --color-warning:  #eab308;
+    --color-danger:   #ef4444;
+    --color-orange:   #f97316;
+    --radius-sm:      8px;
+    --radius-md:      12px;
+    --radius-lg:      16px;
+    --radius-xl:      20px;
+    --shadow-glass:   0 8px 32px rgba(0, 0, 0, 0.3);
+    --shadow-glow:    0 0 20px rgba(124, 58, 237, 0.15);
+    --transition:     all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --font-sans:      'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono:      'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* ── Global Overrides ─────────────────────────────────────────── */
+.stApp {
+    font-family: var(--font-sans) !important;
+    background: linear-gradient(145deg, #0a0f1e 0%, #0d1321 50%, #0f172a 100%) !important;
+}
+
+.stApp > header {
+    background-color: transparent !important;
+}
+
+/* Remove default Streamlit padding */
+.block-container {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+    max-width: 1200px !important;
+}
+
+/* ── Sidebar ──────────────────────────────────────────────────── */
+section[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #0d1117 0%, #111827 100%) !important;
+    border-right: 1px solid var(--border-subtle) !important;
+}
+
+section[data-testid="stSidebar"] .stMarkdown p,
+section[data-testid="stSidebar"] .stMarkdown li {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* ── Typography ───────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans) !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: 2rem !important;
+    background: linear-gradient(135deg, #f1f5f9 0%, #7c3aed 50%, #6366f1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ── Glassmorphism Cards ──────────────────────────────────────── */
+div[data-testid="stMetric"] {
+    background: var(--bg-glass) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid var(--border-glass) !important;
+    border-radius: var(--radius-lg) !important;
+    padding: 1.2rem 1.5rem !important;
+    box-shadow: var(--shadow-glass) !important;
+    transition: var(--transition) !important;
+}
+
+div[data-testid="stMetric"]:hover {
+    border-color: rgba(124, 58, 237, 0.3) !important;
+    box-shadow: var(--shadow-glass), var(--shadow-glow) !important;
+    transform: translateY(-2px);
+}
+
+div[data-testid="stMetric"] label {
+    color: var(--text-secondary) !important;
+    font-size: 0.8rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600 !important;
+}
+
+div[data-testid="stMetric"] [data-testid="stMetricValue"] {
+    font-size: 1.8rem !important;
+    font-weight: 800 !important;
+    color: var(--text-primary) !important;
+}
+
+/* ── Tabs ─────────────────────────────────────────────────────── */
+.stTabs [data-baseweb="tab-list"] {
+    background: var(--bg-glass) !important;
+    backdrop-filter: blur(8px) !important;
+    border: 1px solid var(--border-glass) !important;
+    border-radius: var(--radius-md) !important;
+    padding: 4px !important;
+    gap: 2px !important;
+}
+
+.stTabs [data-baseweb="tab"] {
+    border-radius: var(--radius-sm) !important;
+    color: var(--text-secondary) !important;
+    font-weight: 500 !important;
+    font-size: 0.85rem !important;
+    padding: 8px 16px !important;
+    transition: var(--transition) !important;
+}
+
+.stTabs [data-baseweb="tab"]:hover {
+    color: var(--text-primary) !important;
+    background: rgba(124, 58, 237, 0.1) !important;
+}
+
+.stTabs [aria-selected="true"] {
+    background: rgba(124, 58, 237, 0.2) !important;
+    color: var(--text-primary) !important;
+    font-weight: 600 !important;
+}
+
+.stTabs [data-baseweb="tab-highlight"] {
+    background-color: var(--accent-violet) !important;
+}
+
+.stTabs [data-baseweb="tab-border"] {
+    display: none !important;
+}
+
+/* ── Buttons ──────────────────────────────────────────────────── */
+.stButton > button {
+    background: linear-gradient(135deg, var(--accent-violet) 0%, var(--accent-indigo) 100%) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: var(--radius-md) !important;
+    font-weight: 600 !important;
+    font-size: 0.95rem !important;
+    padding: 0.65rem 2rem !important;
+    transition: var(--transition) !important;
+    box-shadow: 0 4px 14px rgba(124, 58, 237, 0.35) !important;
+    letter-spacing: 0.02em;
+}
+
+.stButton > button:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.5) !important;
+}
+
+.stButton > button:active {
+    transform: translateY(0px) !important;
+}
+
+/* Download buttons */
+.stDownloadButton > button {
+    background: var(--bg-glass) !important;
+    border: 1px solid var(--border-glass) !important;
+    color: var(--text-primary) !important;
+    border-radius: var(--radius-md) !important;
+    backdrop-filter: blur(8px) !important;
+    transition: var(--transition) !important;
+}
+
+.stDownloadButton > button:hover {
+    border-color: var(--accent-violet) !important;
+    box-shadow: var(--shadow-glow) !important;
+}
+
+/* ── File Uploader ────────────────────────────────────────────── */
+[data-testid="stFileUploader"] {
+    background: var(--bg-glass) !important;
+    backdrop-filter: blur(12px) !important;
+    border: 2px dashed rgba(124, 58, 237, 0.3) !important;
+    border-radius: var(--radius-lg) !important;
+    padding: 1rem !important;
+    transition: var(--transition) !important;
+}
+
+[data-testid="stFileUploader"]:hover {
+    border-color: rgba(124, 58, 237, 0.6) !important;
+    box-shadow: var(--shadow-glow) !important;
+}
+
+[data-testid="stFileUploader"] section {
+    padding: 1.5rem !important;
+}
+
+[data-testid="stFileUploader"] button {
+    background: linear-gradient(135deg, var(--accent-violet) 0%, var(--accent-indigo) 100%) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: var(--radius-sm) !important;
+}
+
+/* ── Code Blocks ──────────────────────────────────────────────── */
+.stCodeBlock, code, pre {
+    font-family: var(--font-mono) !important;
+}
+
+[data-testid="stCode"] {
+    border-radius: var(--radius-md) !important;
+    border: 1px solid var(--border-glass) !important;
+}
+
+/* ── Expander ─────────────────────────────────────────────────── */
+.streamlit-expanderHeader {
+    background: var(--bg-glass) !important;
+    border-radius: var(--radius-md) !important;
+    border: 1px solid var(--border-glass) !important;
+    font-weight: 600 !important;
+    color: var(--text-primary) !important;
+}
+
+details {
+    border: 1px solid var(--border-glass) !important;
+    border-radius: var(--radius-md) !important;
+    background: var(--bg-card) !important;
+}
+
+/* ── Alerts / Callouts ────────────────────────────────────────── */
+.stAlert {
+    border-radius: var(--radius-md) !important;
+    border-left-width: 4px !important;
+}
+
+/* ── Divider ──────────────────────────────────────────────────── */
+hr {
+    border-color: var(--border-subtle) !important;
+    margin: 1.5rem 0 !important;
+}
+
+/* ── Spinner ──────────────────────────────────────────────────── */
+.stSpinner > div {
+    border-top-color: var(--accent-violet) !important;
+}
+
+/* ── Scrollbar ────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--text-muted);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}
+
+/* ── Animations ───────────────────────────────────────────────── */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0.7; }
+}
+
+@keyframes shimmer {
+    0%   { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-slide-in {
+    animation: slideIn 0.4s ease-out;
+}
+
+/* ── Custom Metric Cards (HTML-based) ─────────────────────────── */
+.metric-card {
+    background: var(--bg-glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-lg);
+    padding: 1.4rem 1.2rem;
+    text-align: center;
+    transition: var(--transition);
+    animation: fadeInUp 0.5s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.metric-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-violet), var(--accent-indigo), var(--accent-blue));
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.metric-card:hover {
+    border-color: rgba(124, 58, 237, 0.3);
+    box-shadow: var(--shadow-glass), var(--shadow-glow);
+    transform: translateY(-3px);
+}
+
+.metric-card:hover::before {
+    opacity: 1;
+}
+
+.metric-card .metric-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.metric-card .metric-value {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.2;
+    margin-bottom: 0.3rem;
+}
+
+.metric-card .metric-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+}
+
+/* Score-specific colors */
+.metric-card.score-high .metric-value { color: var(--color-success); }
+.metric-card.score-mid .metric-value  { color: var(--color-warning); }
+.metric-card.score-low .metric-value  { color: var(--color-danger); }
+
+/* ── Bug / Issue Cards ────────────────────────────────────────── */
+.issue-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-md);
+    padding: 1.2rem;
+    margin-bottom: 0.8rem;
+    transition: var(--transition);
+    animation: fadeInUp 0.4s ease-out;
+}
+
+.issue-card:hover {
+    border-color: rgba(124, 58, 237, 0.2);
+    background: rgba(17, 24, 39, 0.8);
+}
+
+.issue-card .issue-title {
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+}
+
+.issue-card .issue-desc {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+/* Severity badges */
+.badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: white;
+}
+
+.badge-critical { background: var(--color-danger); }
+.badge-high     { background: var(--color-orange); }
+.badge-major    { background: var(--color-orange); }
+.badge-medium   { background: var(--color-warning); color: #1a1a1a; }
+.badge-minor    { background: var(--color-success); }
+.badge-low      { background: var(--color-success); }
+
+/* ── Loading Skeleton ─────────────────────────────────────────── */
+.skeleton {
+    background: linear-gradient(90deg, var(--bg-card) 25%, rgba(124, 58, 237, 0.1) 50%, var(--bg-card) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: var(--radius-md);
+    height: 20px;
+    margin-bottom: 8px;
+}
+
+/* ── Section Headers ──────────────────────────────────────────── */
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.section-header .section-icon {
+    font-size: 1.3rem;
+}
+
+.section-header .section-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+/* ── Progress Ring (for quality score) ────────────────────────── */
+.score-ring {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    position: relative;
+}
+
+.score-ring .score-value {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+/* ── Tooltip ──────────────────────────────────────────────────── */
+.tooltip {
+    position: relative;
+    cursor: help;
+}
+
+/* ── Footer ───────────────────────────────────────────────────── */
+.app-footer {
+    text-align: center;
+    padding: 2rem 0 1rem;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--border-subtle);
+    margin-top: 3rem;
+}
+
+.app-footer a {
+    color: var(--accent-violet);
+    text-decoration: none;
+}
